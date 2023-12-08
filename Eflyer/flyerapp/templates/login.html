@@ -42,9 +42,9 @@
                       <a href="{% url 'register' %}"><button class="btn text-green btn-outline-green px-4" type="submit">Sign Up</button></a>
                     </div>
                   </div>
-                <form class="contactForm mt-5">
-                    
-
+                <form class="contactForm mt-5" method="POST">
+                    {% csrf_token %}
+                    {% include 'alert.html' %}
                     <div class="row">
                         <div class="col mb-3">
                             <label for="validationDefault01">Email</label>

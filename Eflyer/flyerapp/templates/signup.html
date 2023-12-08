@@ -46,6 +46,10 @@
                     {% csrf_token %}
                     {% include 'alert.html' %}
                     <div class="form-row">
+                      <div class="col-md-12 mb-3">
+                        <label for="validationDefault01">User name</label>
+                        <input type="text" name="username" class="form-control w-100" id="validationDefault01"  required>
+                      </div>
                       <div class="col-md-6 mb-3">
                         <label for="validationDefault01">First name</label>
                         <input type="text" name="fname" class="form-control w-100" id="validationDefault01"  required>

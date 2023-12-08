@@ -3,3 +3,8 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Products)
+admin.site.register(Category_c)
+admin.site.register(order)
+admin.site.register(carte)
+
+
