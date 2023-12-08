@@ -250,9 +250,23 @@ li.dropdown {
                               <div class="tshirt_img"><img src="{{p.product_images.url}}"></div>
 
                               <div class="btn_main">
-                                 <div class="buy_bt"><a href="{% url 'base' %}">Buy Now</a></div>
-                                 <div class="seemore_bt"><a href="#">Add to Cart</a></div>
+                                 <form action="{% url 'buynow' pk=p.id %}" method="POST">
+                                    {% csrf_token %}
+                                   <div class="seemore_bt">
+                                    <button class="bg-green" type="submit"  style="color: #cecece; background: none; border: none;">Buy Now</button>
+                                 </div>
+                              </form>
 
+                                 
+
+
+
+                                 <form action="{% url 'addtoc' pk=p.id %}" method="POST">
+                                    {% csrf_token %}
+                                   <div class="seemore_bt">
+                                    <button type="submit"  style="color: #cecece; background: none; border: none;">Add to Cart</button>
+                                 </div>
+                              </form>
                               </div>
 
                            </div>

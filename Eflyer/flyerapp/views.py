@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, redirect, render
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from .models import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -22,8 +22,11 @@ def user_logout(request):
 
 
 @login_required(login_url='login')
-def base(request):
-    prod = Products.objects.all()
+def base(request , pk):
+    
+            
+    prod = get_object_or_404(Products, id=pk)
+    # prod = Products.objects.all()
     
     context = {"prod":prod}
     return   render(request, 'buy.html',context)
@@ -48,5 +51,21 @@ def delic(request, pk):
         return redirect('cart')
     return  render(request, 'cart.html')
 
+def add_toc(request,pk):
+    if request.method == "POST":
+        get_item = get_object_or_404(Products, id=pk)
+        addtoc = carte.objects.create(usr_cos = request.user,products=get_item)
+        addtoc.save()
+        messages.success(request, 'An email has been sent on your mail.')
+        return redirect('/')
+        
 
+    return render(request,'index.html')
+def buyn(request, pk):
+    if request.method == "POST":
+        return('base' ,pk)
+        
+        
+
+    return render(request,'buy.html')
 
