@@ -1,2 +1,2 @@
-# eflyer
- ecommerce django site
+Eflyer Store, Python Djano BackEnd
+Simple Daraz(online Store) Like WebApp
